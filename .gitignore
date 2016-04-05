@@ -1,0 +1,3 @@
+*.suo
+Scythe.Fody/obj/
+packages/
