@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody", "Scythe.Fody\Scythe.Fody.csproj", "{02B0B0D4-F58C-4152-B6B5-49ECB1B13B61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody.Test", "Scythe.Fody.Test\Scythe.Fody.Test.csproj", "{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{02B0B0D4-F58C-4152-B6B5-49ECB1B13B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B0B0D4-F58C-4152-B6B5-49ECB1B13B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B0B0D4-F58C-4152-B6B5-49ECB1B13B61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
