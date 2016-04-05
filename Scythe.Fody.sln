@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody", "Scythe.Fody\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody.Test", "Scythe.Fody.Test\Scythe.Fody.Test.csproj", "{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestAssembly", "Scythe.TestAssembly\Scythe.TestAssembly.csproj", "{88B8455C-0EE3-44AC-802D-D786539AFB4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

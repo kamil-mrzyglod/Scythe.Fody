@@ -4,3 +4,5 @@ packages/
 Scythe.Fody/bin/
 Scythe.Fody.Test/obj/
 Scythe.Fody.Test/bin/
+Scythe.TestAssembly/obj/
+Scythe.TestAssembly/bin/
