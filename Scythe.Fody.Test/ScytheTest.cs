@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Xml.Linq;
 using Mono.Cecil;
 using NUnit.Framework;
 
@@ -13,6 +15,7 @@ namespace Scythe.Fody.Test
         private string _weavedAssemblyName;
 
         private Assembly _assembly;
+        private ModuleWeaver _weaver;
 
         [SetUp]
         public void SetUp()
@@ -20,9 +23,11 @@ namespace Scythe.Fody.Test
             _weavedAssemblyName = AssemblyDirectory + $"Scythe.TestAssembly{DateTime.Now.Ticks}.dll";
 
             var md = ModuleDefinition.ReadModule(Path.GetFullPath(AssemblyDirectory + AssemblyPath));
-            var weaver = new ModuleWeaver { ModuleDefinition = md };
+            var xe = new XElement("Scythe", new XAttribute("Instructions", 1));
 
-            weaver.Execute();
+            _weaver = new ModuleWeaver { ModuleDefinition = md, Config = xe };
+
+            _weaver.Execute();
             md.Write(_weavedAssemblyName);
 
             _assembly = Assembly.LoadFile(_weavedAssemblyName);
@@ -37,6 +42,13 @@ namespace Scythe.Fody.Test
                 var path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
             }
+        }
+
+        [Test]
+        public void Test()
+        {
+            Assert.That(_weaver.Errors, Is.Not.Empty);
+            Assert.That(_weaver.Errors.Any(_ => _.ErrorType == ErrorType.MethodInstruction), Is.True);
         }
     }
 }
