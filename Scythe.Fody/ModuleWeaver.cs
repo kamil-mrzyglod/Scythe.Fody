@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Linq;
-using Mono.Cecil;
-using Scythe.Fody.Scythes;
-
-namespace Scythe.Fody
+﻿namespace Scythe.Fody
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Xml.Linq;
+
+    using Mono.Cecil;
+
+    using Scythe.Fody.Scythes;
+
     public class ModuleWeaver
     {
         public ModuleDefinition ModuleDefinition { get; set; }
@@ -17,7 +20,12 @@ namespace Scythe.Fody
         /// <summary>
         /// Contains all error generated from scythes
         /// </summary>
-        public IEnumerable<ErrorMessage> Errors { get; set; } 
+        public static IEnumerable<ErrorMessage> Errors { get; set; }
+
+        static ModuleWeaver()
+        {
+            Errors = Enumerable.Empty<ErrorMessage>();
+        }
 
         public ModuleWeaver()
         {
@@ -26,7 +34,8 @@ namespace Scythe.Fody
 
         public void Execute()
         {
-            Errors = new MethodInstructions().Check(ModuleDefinition, Config);
+            Toggler.Toggle<MethodInstructions>(ModuleDefinition, Config);
+
             foreach (var error in Errors)
             {
                 LogError(error.ToString());
