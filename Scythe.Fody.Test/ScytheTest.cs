@@ -23,7 +23,10 @@ namespace Scythe.Fody.Test
             _weavedAssemblyName = AssemblyDirectory + $"Scythe.TestAssembly{DateTime.Now.Ticks}.dll";
 
             var md = ModuleDefinition.ReadModule(Path.GetFullPath(AssemblyDirectory + AssemblyPath));
-            var xe = new XElement("Scythe", new XAttribute("Instructions", 1), new XAttribute("Parameters", 1));
+            var xe = new XElement(
+                "Scythe",
+                new XElement("MethodInstructions", new XAttribute("Instructions", 1), new XAttribute("Severity", "Error")),
+                new XElement("ParametersCount", new XAttribute("Parameters", 1), new XAttribute("Severity", "Error")));
 
             _weaver = new ModuleWeaver { ModuleDefinition = md, Config = xe };
 

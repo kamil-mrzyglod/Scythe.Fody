@@ -17,6 +17,8 @@
 
         public Action<string> LogError { get; set; }
 
+        public Action<string> LogWarning { get; set; }
+
         /// <summary>
         /// Contains all error generated from scythes
         /// </summary>
@@ -30,6 +32,7 @@
         public ModuleWeaver()
         {
             LogError = s => { };
+            LogWarning = s => { };
         }
 
         public void Execute()
@@ -40,9 +43,14 @@
                 Toggler.Toggle<ParametersCount>(method, Config);
             }
             
-            foreach (var error in Errors)
+            foreach (var error in Errors.Where(_ => _.Severity == Severity.Error))
             {
                 LogError(error.ToString());
+            }
+
+            foreach (var error in Errors.Where(_ => _.Severity == Severity.Warning))
+            {
+                LogWarning(error.ToString());
             }
         }
     }

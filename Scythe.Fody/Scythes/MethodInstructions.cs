@@ -1,6 +1,7 @@
 ﻿namespace Scythe.Fody.Scythes
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Xml.Linq;
 
     using Mono.Cecil;
@@ -17,12 +18,17 @@
         /// </summary>
         public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
-            var instructions = config.Attribute("Instructions").Value;
+            var element = config.Elements("MethodInstructions").First();
+            var instructions = element.Attribute("Instructions").Value;
+            var severity = element.Attribute("Severity").Value;
+
             if (definition.Body.Instructions.Count > int.Parse(instructions))
+
                 yield return
                     new ErrorMessage(
                         $"Method {definition.FullName} contains {definition.Body.Instructions.Count} instructions while max is {instructions}",
-                        ErrorType.MethodInstruction);
+                        ErrorType.MethodInstruction,
+                        severity);
         }
     }
 }
