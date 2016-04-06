@@ -6,3 +6,7 @@ Scythe.Fody.Test/obj/
 Scythe.Fody.Test/bin/
 Scythe.TestAssembly/obj/
 Scythe.TestAssembly/bin/
+Scythe.TestParametersCount/bin/
+Scythe.TestMethodInstructions/obj/
+Scythe.TestParametersCount/obj/
+Scythe.TestMethodInstructions/bin/

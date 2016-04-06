@@ -14,7 +14,10 @@
         /// </summary>
         public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
-            var element = config.Elements("ParametersCount").First();
+            var element = config.Elements("ParametersCount").FirstOrDefault();
+            if(element == null)
+                yield break;
+
             var parameters = element.Attribute("Parameters").Value;
             var severity = element.Attribute("Severity").Value;
 

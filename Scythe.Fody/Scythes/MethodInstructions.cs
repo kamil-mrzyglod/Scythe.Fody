@@ -18,7 +18,10 @@
         /// </summary>
         public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
-            var element = config.Elements("MethodInstructions").First();
+            var element = config.Elements("MethodInstructions").FirstOrDefault();
+            if(element == null)
+                yield break;
+
             var instructions = element.Attribute("Instructions").Value;
             var severity = element.Attribute("Severity").Value;
 
