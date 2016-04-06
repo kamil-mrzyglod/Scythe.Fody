@@ -58,6 +58,8 @@
     <Compile Include="ModuleWeaver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scythes\MethodInstructions.cs" />
+    <Compile Include="Scythes\ParametersCount.cs" />
+    <Compile Include="Toggler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
