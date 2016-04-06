@@ -34,8 +34,12 @@
 
         public void Execute()
         {
-            Toggler.Toggle<MethodInstructions>(ModuleDefinition, Config);
-
+            foreach (var method in from type in ModuleDefinition.Types from method in type.Methods select method)
+            {
+                Toggler.Toggle<MethodInstructions>(method, Config);
+                Toggler.Toggle<ParametersCount>(method, Config);
+            }
+            
             foreach (var error in Errors)
             {
                 LogError(error.ToString());

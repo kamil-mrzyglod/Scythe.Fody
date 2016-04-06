@@ -6,6 +6,10 @@
         {
             var foo = "bar";
             var bar = "foo";
-        } 
+        }
+
+        public void TestMethodParameters(object one, object two)
+        {
+        }
     }
 }

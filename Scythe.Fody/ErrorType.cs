@@ -2,6 +2,7 @@
 {
     public enum ErrorType
     {
-        MethodInstruction
+        MethodInstruction,
+        ParametersCount
     }
 }

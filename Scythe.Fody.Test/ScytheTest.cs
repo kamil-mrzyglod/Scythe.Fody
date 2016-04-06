@@ -23,7 +23,7 @@ namespace Scythe.Fody.Test
             _weavedAssemblyName = AssemblyDirectory + $"Scythe.TestAssembly{DateTime.Now.Ticks}.dll";
 
             var md = ModuleDefinition.ReadModule(Path.GetFullPath(AssemblyDirectory + AssemblyPath));
-            var xe = new XElement("Scythe", new XAttribute("Instructions", 1));
+            var xe = new XElement("Scythe", new XAttribute("Instructions", 1), new XAttribute("Parameters", 1));
 
             _weaver = new ModuleWeaver { ModuleDefinition = md, Config = xe };
 
@@ -45,10 +45,17 @@ namespace Scythe.Fody.Test
         }
 
         [Test]
-        public void Test()
+        public void GivenInvalidInstructionsCount_ShouldMarkItAsError()
         {
-            Assert.That(_weaver.Errors, Is.Not.Empty);
-            Assert.That(_weaver.Errors.Any(_ => _.ErrorType == ErrorType.MethodInstruction), Is.True);
+            Assert.That(ModuleWeaver.Errors, Is.Not.Empty);
+            Assert.That(ModuleWeaver.Errors.Any(_ => _.ErrorType == ErrorType.MethodInstruction), Is.True);
+        }
+
+        [Test]
+        public void GivenInvalidParametersCount_ShouldMarkItAsError()
+        {
+            Assert.That(ModuleWeaver.Errors, Is.Not.Empty);
+            Assert.That(ModuleWeaver.Errors.Any(_ => _.ErrorType == ErrorType.ParametersCount), Is.True);
         }
     }
 }

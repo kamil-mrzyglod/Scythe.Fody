@@ -6,6 +6,6 @@ namespace Scythe.Fody
 {
     public interface IScythe
     {
-        IEnumerable<ErrorMessage> Check(ModuleDefinition definition, XElement config);
+        IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config);
     }
 }

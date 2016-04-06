@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using Mono.Cecil;
-
-namespace Scythe.Fody.Scythes
+﻿namespace Scythe.Fody.Scythes
 {
+    using System.Collections.Generic;
+    using System.Xml.Linq;
+
+    using Mono.Cecil;
+
     public class MethodInstructions : IScythe
     {
         /// <summary>
@@ -15,17 +15,14 @@ namespace Scythe.Fody.Scythes
         /// - mostly because it checks for complexity rather than
         /// in how many lines a developer developed a functionality
         /// </summary>
-        public IEnumerable<ErrorMessage> Check(ModuleDefinition definition, XElement config)
+        public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
-            foreach (var method in from type in definition.GetTypes() from method in type.Methods select method)
-            {
-                var instructions = config.Attribute("Instructions").Value;
-                if (method.Body.Instructions.Count > int.Parse(instructions))
-                    yield return
-                        new ErrorMessage(
-                            $"Method {method.FullName} contains {method.Body.Instructions.Count} instructions, whether max is {instructions}",
-                            ErrorType.MethodInstruction);
-            }
+            var instructions = config.Attribute("Instructions").Value;
+            if (definition.Body.Instructions.Count > int.Parse(instructions))
+                yield return
+                    new ErrorMessage(
+                        $"Method {definition.FullName} contains {definition.Body.Instructions.Count} instructions while max is {instructions}",
+                        ErrorType.MethodInstruction);
         }
     }
 }
