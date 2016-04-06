@@ -68,6 +68,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="CyclomaticComplexityTest.cs" />
     <Compile Include="MethodInstructionsTest.cs" />
     <Compile Include="ParametersCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

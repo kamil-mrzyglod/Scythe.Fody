@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestMethodInstructio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestParametersCount", "Scythe.TestParametersCount\Scythe.TestParametersCount.csproj", "{96B43132-FC22-4ED4-90C0-39A7D4013832}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.CyclomaticComplexityTest", "Scythe.CyclomaticComplexityTest\Scythe.CyclomaticComplexityTest.csproj", "{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{897C2260-68A4-4845-976E-711A9139E018} = {AB996977-F240-4A9A-976A-FB45C57B098C}
 		{96B43132-FC22-4ED4-90C0-39A7D4013832} = {AB996977-F240-4A9A-976A-FB45C57B098C}
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162} = {AB996977-F240-4A9A-976A-FB45C57B098C}
 	EndGlobalSection
 EndGlobal
