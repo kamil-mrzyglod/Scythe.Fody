@@ -3,6 +3,7 @@
     public enum ErrorType
     {
         MethodInstruction,
-        ParametersCount
+        ParametersCount,
+        CyclomaticComplexity
     }
 }

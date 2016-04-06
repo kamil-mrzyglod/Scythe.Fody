@@ -1,6 +1,7 @@
 ﻿namespace Scythe.Fody.Scythes
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Xml.Linq;
 
     using Mono.Cecil;
@@ -13,12 +14,19 @@
         /// </summary>
         public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
-            var parameters = config.Attribute("Parameters").Value;
+            var element = config.Elements("ParametersCount").FirstOrDefault();
+            if(element == null)
+                yield break;
+
+            var parameters = element.Attribute("Parameters").Value;
+            var severity = element.Attribute("Severity").Value;
+
             if (definition.Parameters.Count > int.Parse(parameters))
                 yield return
                     new ErrorMessage(
                         $"Method {definition.FullName} contains {definition.Parameters.Count} parameters while max is {parameters}",
-                        ErrorType.ParametersCount);
+                        ErrorType.ParametersCount,
+                        severity);
         }
     }
 }
