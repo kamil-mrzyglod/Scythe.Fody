@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody", "Scythe.Fody\Scythe.Fody.csproj", "{02B0B0D4-F58C-4152-B6B5-49ECB1B13B61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.Fody.Test", "Scythe.Fody.Test\Scythe.Fody.Test.csproj", "{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestAssembly", "Scythe.TestAssembly\Scythe.TestAssembly.csproj", "{88B8455C-0EE3-44AC-802D-D786539AFB4D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestAssemblies", "TestAssemblies", "{AB996977-F240-4A9A-976A-FB45C57B098C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestMethodInstructions", "Scythe.TestMethodInstructions\Scythe.TestMethodInstructions.csproj", "{897C2260-68A4-4845-976E-711A9139E018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.TestParametersCount", "Scythe.TestParametersCount\Scythe.TestParametersCount.csproj", "{96B43132-FC22-4ED4-90C0-39A7D4013832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scythe.CyclomaticComplexityTest", "Scythe.CyclomaticComplexityTest\Scythe.CyclomaticComplexityTest.csproj", "{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +29,25 @@ Global
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B651378-5BE5-45B3-BE44-C87ED0CB8D8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88B8455C-0EE3-44AC-802D-D786539AFB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{897C2260-68A4-4845-976E-711A9139E018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{897C2260-68A4-4845-976E-711A9139E018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{897C2260-68A4-4845-976E-711A9139E018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{897C2260-68A4-4845-976E-711A9139E018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B43132-FC22-4ED4-90C0-39A7D4013832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{897C2260-68A4-4845-976E-711A9139E018} = {AB996977-F240-4A9A-976A-FB45C57B098C}
+		{96B43132-FC22-4ED4-90C0-39A7D4013832} = {AB996977-F240-4A9A-976A-FB45C57B098C}
+		{C9B217C9-1AF6-4B94-9FD3-6E82C12E8162} = {AB996977-F240-4A9A-976A-FB45C57B098C}
 	EndGlobalSection
 EndGlobal
