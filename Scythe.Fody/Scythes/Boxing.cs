@@ -15,6 +15,14 @@ namespace Scythe.Fody.Scythes
             OpCodes.Stloc, OpCodes.Ldloc, OpCodes.Brtrue
         };
 
+        /// <summary>
+        /// Checks whether any method performs a boxing
+        /// operation inside a loop. It doesn't count 
+        /// single boxing operations and doesn't check
+        /// if a loop calls a method which internally 
+        /// performs a boxing(and this is an enhancement,
+        /// which should be developed soon.
+        /// </summary>
         public IEnumerable<ErrorMessage> Check(MethodDefinition definition, XElement config)
         {
             var element = config.Elements("Boxing").FirstOrDefault();
@@ -36,18 +44,15 @@ namespace Scythe.Fody.Scythes
             foreach (var suspect in loopSuspects)
             {
                 Instruction ret;
-                if (TryToParseAsLoop(suspect, 0, out ret))
+                if (!TryToParseAsLoop(suspect, 0, out ret)) continue;
+
+                foreach (var instruction in boxingInstructions.Where(instruction => instruction.Offset > ((Instruction) ret.Operand).Offset))
                 {
-                    foreach (var instruction in boxingInstructions)
-                    {
-                        if (instruction.Offset > ((Instruction) ret.Operand).Offset)
-                            yield return
-                                new ErrorMessage(
-                                    $"Method {definition.FullName} performs boxing inside a loop, what can hurt performance.",
-                                    ErrorType.Boxing, severity);
-                    }
+                    yield return
+                        new ErrorMessage(
+                            $"Method {definition.FullName} performs boxing inside a loop at offset {instruction.Offset}, what can hurt performance.",
+                            ErrorType.Boxing, severity);
                 }
-                    
             }
         }
 

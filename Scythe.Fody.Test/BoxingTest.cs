@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
 using Mono.Cecil;
@@ -48,6 +49,9 @@ namespace Scythe.Fody.Test
         public void GivenInvalidBoxing_ShouldMarkItAsError()
         {
             Assert.That(ModuleWeaver.Errors, Is.Not.Empty);
+            Assert.That(ModuleWeaver.Errors.All(_ => _.ErrorType == ErrorType.Boxing), Is.True);
+            Assert.That(ModuleWeaver.Errors.All(_ => _.Severity == Severity.Warning), Is.True);
+            Assert.That(ModuleWeaver.Errors.Count() == 1, Is.True);
         }
     }
 }
