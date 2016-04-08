@@ -35,6 +35,9 @@
                     _.OpCode == OpCodes.Brtrue || _.OpCode == OpCodes.Brtrue_S || _.OpCode == OpCodes.Brfalse
                     || _.OpCode == OpCodes.Brfalse_S);
 
+            // OpCodes.Br means that there is an unconditional
+            // control transfer, in most cases it means that
+            // it is a return statement
             if (definition.Body.Instructions.Any(_ => _.OpCode == OpCodes.Br || _.OpCode == OpCodes.Br_S)) transfers++;
 
             if(transfers > int.Parse(cyclomaticComplexity))

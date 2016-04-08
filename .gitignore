@@ -12,3 +12,5 @@ Scythe.TestParametersCount/obj/
 Scythe.TestMethodInstructions/bin/
 Scythe.CyclomaticComplexityTest/obj/
 Scythe.CyclomaticComplexityTest/bin/
+Scythe.TestBoxing/bin/
+Scythe.TestBoxing/obj/

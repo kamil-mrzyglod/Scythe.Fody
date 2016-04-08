@@ -4,6 +4,7 @@
     {
         MethodInstruction,
         ParametersCount,
-        CyclomaticComplexity
+        CyclomaticComplexity,
+        Boxing
     }
 }
