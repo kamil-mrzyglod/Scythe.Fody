@@ -42,6 +42,7 @@
                 Toggler.Toggle<MethodInstructions>(method, Config);
                 Toggler.Toggle<ParametersCount>(method, Config);
                 Toggler.Toggle<CyclomaticComplexity>(method, Config);
+                Toggler.Toggle<Boxing>(method, Config);
             }
             
             foreach (var error in Errors.Where(_ => _.Severity == Severity.Error))
